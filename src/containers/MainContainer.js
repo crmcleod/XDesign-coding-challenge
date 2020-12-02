@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const MainContainer = () => {
 
-    const [ spaceXLaunches, setSpaceXLaunches ] = useState([ ])
+    const [ spaceXLaunches, setSpaceXLaunches ] = useState()
     const [ apiURL, setApiURL ] = useState('https://api.spacexdata.com/v3/launches')
 
     const fetchData = async ( url ) => {
@@ -23,7 +23,7 @@ const MainContainer = () => {
             <HeaderContainer />
             {/* Launch logo here */}
             <FilterContainer />
-            <LaunchListContainer />
+            { spaceXLaunches ? <LaunchListContainer /> : <p> Preparing to launch 🚀 </p> }
         </>
     )
 }

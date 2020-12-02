@@ -10,6 +10,7 @@ const MainContainer = () => {
     const [ launchDataForDisplay, setLaunchDataForDisplay ] = useState()
     const [ launchYears, setLaunchYears ] = useState()
     const [ listFilter, setListFilter ] = useState({ filtered: false, launchYear: 2016 })
+    const [ sortedAscending, setSortedAscending ] = useState(true)
     const [ apiURL, setApiURL ] = useState('https://api.spacexdata.com/v3/launches')
 
 
@@ -37,9 +38,17 @@ const MainContainer = () => {
         }
     }
 
+    const toggleAscendingDescending = ( x ) => {
+        if( !x ){
+            const sortedData = launchDataForDisplay.map(launch => launch).reverse()
+            setLaunchDataForDisplay(sortedData)
+        }
+    }
+
     useEffect(() => {
         filterDataForDisplay()
-    }, [ listFilter ])
+        toggleAscendingDescending(sortedAscending)
+    }, [ listFilter, sortedAscending ])
 
     return(
         <>

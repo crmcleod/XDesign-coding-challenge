@@ -1,4 +1,5 @@
 import React from 'react'
+import dateFormat from 'dateformat'
 
 const LaunchInformation = ({ launchData }) => {
     return(
@@ -6,7 +7,7 @@ const LaunchInformation = ({ launchData }) => {
             <div>
                 <span> # { launchData.launch_year } </span>
                 <span> { launchData.mission_name } </span>
-                <span> { launchData.launch_date_utc } </span>
+                <span> { dateFormat(launchData.launch_date_utc, "dS mmm yyyy") } </span>
                 <span> { launchData.rocket.rocket_name } </span>
             </div>
         </>

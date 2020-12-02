@@ -1,10 +1,17 @@
 import React from 'react'
+import LaunchInformation from './LaunchInformation'
 
-const LaunchList = ({ launchData }) => {
+const LaunchList = ({ launchesData }) => {
+
+    const launchDataNodes = launchesData.map(( launch ) => {
+        return(
+            < LaunchInformation launchData={ launch } />
+        )
+    })
 
     return(
         <>
-            {/* Launches list here */}
+            { launchDataNodes }
         </>
     )
 }

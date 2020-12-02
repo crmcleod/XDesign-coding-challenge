@@ -9,7 +9,7 @@ const MainContainer = () => {
     const [ spaceXLaunches, setSpaceXLaunches ] = useState()
     const [ launchDataForDisplay, setLaunchDataForDisplay ] = useState()
     const [ launchYears, setLaunchYears ] = useState()
-    const [ listFilter, setListFilter ] = useState({ filtered: false, launchYear: 2016 })
+    const [ listFilter, setListFilter ] = useState({ filtered: false, launchYear: null })
     const [ sortedAscending, setSortedAscending ] = useState(true)
     const [ apiURL, setApiURL ] = useState('https://api.spacexdata.com/v3/launches')
 
@@ -56,7 +56,7 @@ const MainContainer = () => {
             {/* Launch logo here */}
             <FilterContainer launchYears={ launchYears } />
             { launchDataForDisplay ? 
-                <LaunchListContainer launchData={ launchDataForDisplay } /> : 
+                <LaunchListContainer launchesData={ launchDataForDisplay } /> : 
                 <p> Preparing to launch 🚀 </p> 
             }
         </>

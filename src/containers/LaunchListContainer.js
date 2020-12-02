@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import LaunchList from '../components/LaunchList'
 
-const LaunchListContainer = ({ launchData }) => {
+const LaunchListContainer = ({ launchesData }) => {
 
     return(
         <>
-            <LaunchList launchData={ launchData } />
+            <LaunchList launchesData={ launchesData } />
         </>
     )
 }

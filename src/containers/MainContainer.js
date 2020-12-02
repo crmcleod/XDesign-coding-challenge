@@ -12,10 +12,14 @@ const MainContainer = () => {
     const [ listFilter, setListFilter ] = useState({ filtered: false, launchYear: 2016 })
     const [ apiURL, setApiURL ] = useState('https://api.spacexdata.com/v3/launches')
 
+
+    const getLaunchYears = ( data ) => {return data.map( launch => launch.launch_year )}
+
     const fetchData = async ( url ) => {
         const spaceXAPIResults = await axios( url )
         setSpaceXLaunches( spaceXAPIResults.data )
         setLaunchDataForDisplay( spaceXAPIResults.data )
+        setLaunchYears(getLaunchYears(spaceXAPIResults.data))
     }
 
     useEffect(() => {
@@ -41,7 +45,7 @@ const MainContainer = () => {
         <>
             <HeaderContainer reloadData={ fetchData } />
             {/* Launch logo here */}
-            <FilterContainer />
+            <FilterContainer launchYears={ launchYears } />
             { launchDataForDisplay ? 
                 <LaunchListContainer launchData={ launchDataForDisplay } /> : 
                 <p> Preparing to launch 🚀 </p> 

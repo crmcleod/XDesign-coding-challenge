@@ -11,7 +11,9 @@ const LaunchList = ({ launchesData }) => {
 
     return(
         <>
-            { launchDataNodes }
+            <ul>
+              { launchDataNodes }
+            </ul>
         </>
     )
 }

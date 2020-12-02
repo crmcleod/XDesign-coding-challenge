@@ -1,10 +1,13 @@
 import React from 'react'
 
-const Button = ({ }) => {
+const Button = ({ buttonFunction, buttonId, buttonText, icon, functionParams }) => {
 
+    const handleClick = () => {
+        buttonFunction(functionParams)
+    }
     return(
         <>
-            {/* Button here */}
+            <button onClick={ handleClick } id={ buttonId }> { buttonText } <img src={ icon }/> </button>
         </>
     )
 }

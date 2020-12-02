@@ -52,7 +52,7 @@ const MainContainer = () => {
 
     return(
         <>
-            <HeaderContainer reloadData={ fetchData } />
+            <HeaderContainer reloadData={ fetchData } apiURL={ apiURL }/>
             {/* Launch logo here */}
             <FilterContainer launchYears={ launchYears } />
             { launchDataForDisplay ? 

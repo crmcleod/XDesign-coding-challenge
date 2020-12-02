@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LaunchList = () => {
+const LaunchList = ({ launchData }) => {
 
     return(
         <>

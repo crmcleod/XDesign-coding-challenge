@@ -1,9 +1,9 @@
 import React from 'react'
 
-const LaunchInformation = () => {
+const LaunchInformation = ({ launchData }) => {
     return(
         <>
-            <LaunchInformation />
+            {/* launch data here */}
         </>
     )
 }

@@ -8,6 +8,8 @@ const MainContainer = () => {
 
     const [ spaceXLaunches, setSpaceXLaunches ] = useState()
     const [ launchDataForDisplay, setLaunchDataForDisplay ] = useState()
+    const [ launchYears, setLaunchYears ] = useState()
+    const [ listFilter, setListFilter ] = useState({ filtered: false, launchYear: 2016 })
     const [ apiURL, setApiURL ] = useState('https://api.spacexdata.com/v3/launches')
 
     const fetchData = async ( url ) => {
@@ -18,7 +20,22 @@ const MainContainer = () => {
 
     useEffect(() => {
         fetchData(apiURL)
-    })
+    }, [])
+
+    const filterDataForDisplay = () => {
+        let filteredList
+        if( listFilter.filtered ){
+            filteredList = launchDataForDisplay.filter((launch) => {
+                return parseInt(launch.launch_year) === listFilter.launchYear })
+            setLaunchDataForDisplay(filteredList)
+        } else {
+            setLaunchDataForDisplay( spaceXLaunches )
+        }
+    }
+
+    useEffect(() => {
+        filterDataForDisplay()
+    }, [ listFilter ])
 
     return(
         <>

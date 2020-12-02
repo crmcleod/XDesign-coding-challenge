@@ -54,7 +54,7 @@ const MainContainer = () => {
         <>
             <HeaderContainer reloadData={ fetchData } apiURL={ apiURL }/>
             {/* Launch logo here */}
-            <FilterContainer launchYears={ launchYears } />
+            <FilterContainer launchYears={ launchYears } setSortedAscending={ setSortedAscending } sortedAscending={ sortedAscending } />
             { launchDataForDisplay ? 
                 <LaunchListContainer launchesData={ launchDataForDisplay } /> : 
                 <p> Preparing to launch 🚀 </p> 

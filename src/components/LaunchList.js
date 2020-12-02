@@ -12,7 +12,7 @@ const LaunchList = ({ launchesData }) => {
     return(
         <>
             <ul>
-              { launchDataNodes }
+                { launchDataNodes }
             </ul>
         </>
     )

@@ -5,7 +5,7 @@ const LaunchList = ({ launchesData }) => {
 
     const launchDataNodes = launchesData.map(( launch ) => {
         return(
-            < LaunchInformation launchData={ launch } />
+            < LaunchInformation key={ launch.flight_number } launchData={ launch } />
         )
     })
 

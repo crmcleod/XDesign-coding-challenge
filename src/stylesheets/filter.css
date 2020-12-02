@@ -1,22 +1,25 @@
 #filter-buttons-wrapper{
     position: relative;
     float: right;
-    right: 5%;
+    right: 7.5%;
+    top: 1em;
     display: flex;
     flex-direction: row;
     width: 20%;
     justify-content: space-between;
 }
 #sort-button{
-    height: 40px;
-    display: inline-flex;
+    height: 3em;
+    width: 12em;
+    padding: 4%;
+    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     border-style: none;
     color: white;
     background-color: #215184;
 }
 #sort-button > img{
-    width: 10%;
+    width: 1em;
 }

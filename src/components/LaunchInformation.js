@@ -5,10 +5,12 @@ const LaunchInformation = ({ launchData }) => {
     return(
         <>
             <li>
-                <span> #{ launchData.flight_number } </span>
-                <span> { launchData.mission_name } </span>
-                <span> { dateFormat(launchData.launch_date_utc, "dS mmm yyyy") } </span>
-                <span> { launchData.rocket.rocket_name } </span>
+                <span className="flight-number"> #{ launchData.flight_number } </span>
+                <span className="mission-name"> { launchData.mission_name } </span>
+                <div>
+                    <span className="launch-date"> { dateFormat(launchData.launch_date_utc, "dS mmm yyyy") } </span>
+                    <span className="rocket-name"> { launchData.rocket.rocket_name } </span>
+                </div>
             </li>
         </>
     )

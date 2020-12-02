@@ -6,7 +6,7 @@ const HeaderLogo = () => {
         <>
             <div id="header-logo-container">
                 <img src={ logo } alt="space x logo" />
-                <span> LAUNCHES </span>
+                <span>LAUNCHES</span>
             </div>
         </>
     )

@@ -1,6 +1,7 @@
 #home-image{
-    position: relative;
-    margin: 2%;
-    width: 30%;
+    position: absolute;
+    top: 15%;
+    left: 2em;
+    width: 35%;
     min-width: 500px;
 }

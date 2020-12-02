@@ -21,6 +21,7 @@ const MainContainer = () => {
         setSpaceXLaunches( spaceXAPIResults.data )
         setLaunchDataForDisplay( spaceXAPIResults.data )
         setLaunchYears(getLaunchYears(spaceXAPIResults.data))
+        setSortedAscending(true)
     }
 
     useEffect(() => {
@@ -30,8 +31,8 @@ const MainContainer = () => {
     const filterDataForDisplay = () => {
         let filteredList
         if( listFilter.filtered ){
-            filteredList = launchDataForDisplay.filter((launch) => {
-                return parseInt(launch.launch_year) === listFilter.launchYear })
+            filteredList = spaceXLaunches.filter((launch) => {
+                return launch.launch_year == listFilter.launchYear })
             setLaunchDataForDisplay(filteredList)
         } else {
             setLaunchDataForDisplay( spaceXLaunches )
@@ -54,7 +55,14 @@ const MainContainer = () => {
         <>
             <HeaderContainer reloadData={ fetchData } apiURL={ apiURL }/>
             {/* Launch logo here */}
-            <FilterContainer launchYears={ launchYears } setSortedAscending={ setSortedAscending } sortedAscending={ sortedAscending } />
+            <FilterContainer 
+                            launchYears={ launchYears } 
+                            setSortedAscending={ setSortedAscending } 
+                            sortedAscending={ sortedAscending } 
+                            listFilter={ listFilter }
+                            setListFilter={ setListFilter }
+            />
+
             { launchDataForDisplay ? 
                 <LaunchListContainer launchesData={ launchDataForDisplay } /> : 
                 <p> Preparing to launch 🚀 </p> 

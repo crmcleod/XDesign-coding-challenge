@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import LaunchList from '../components/LaunchList'
 
-const LaunchListContainer = () => {
+const LaunchListContainer = ({ }) => {
 
     return(
-        <p> Launch List Container </p>
+        <>
+            <LaunchList />
+        </>
     )
 }
 

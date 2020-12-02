@@ -7,7 +7,6 @@ const MainContainer = () => {
 
     return(
         <>
-            <p> Main Container </p>
             <HeaderContainer />
             {/* Launch logo here */}
             <FilterContainer />

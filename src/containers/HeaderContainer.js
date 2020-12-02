@@ -1,9 +1,14 @@
 import React from 'react'
+import Button from '../components/Button'
+import HeaderLogo from '../components/HeaderLogo'
 
-const HeaderContainer = () => {
+const HeaderContainer = ({ }) => {
 
     return(
-        <p> Header Container </p>
+        <>
+            <HeaderLogo />
+            <Button />
+        </>
     )
 }
 

@@ -41,18 +41,19 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     display: grid;
-    align-items: center;
     grid-template-columns: 1fr 3fr 2fr;
     scroll-snap-align: start;
 }
 .flight-number{
+    column-gap: 1/2;
     font-size: 2.5em;
 }
 .mission-name{
+    columns: 2/3;
     font-size: 2rem;
 }
 #launch-list-wrapper > ul > li > div{
-    height: 70%;
+    columns: 3/4;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

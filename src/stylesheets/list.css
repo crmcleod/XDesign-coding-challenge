@@ -9,6 +9,9 @@
     top: 11em;
     scroll-snap-type: y proximity;
 }
+#launch-list-wrapper::-webkit-scrollbar{
+    display: none;
+}
 #launch-list-wrapper ul{
     height: 100%;
 }

@@ -1,17 +1,15 @@
 #filter-buttons-wrapper{
     position: relative;
     float: right;
-    right: 7.5%;
-    top: 1em;
+    right: 6em;
+    top: 5em;
     display: flex;
     flex-direction: row;
-    width: 20%;
     justify-content: space-between;
 }
 #sort-button{
     height: 3em;
     width: 12em;
-    padding: 4%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,7 +17,32 @@
     border-style: none;
     color: white;
     background-color: #215184;
+    margin-left: 0.5em;
 }
 #sort-button > img{
+    width: 1em;
+}
+#filter-year-selector{
+    height: 3em;
+    width: 12em;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    border-radius: 0%;
+    color: white;
+    background-color: #215184;
+    -webkit-appearance: none;
+    background-image: url('../assets/icon/select@3x.png');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 50%;
+    background-size: 10%;
+}
+#select-icon{
+    position: absolute;
+    left: 8em;
+    top: 1em;
     width: 1em;
 }

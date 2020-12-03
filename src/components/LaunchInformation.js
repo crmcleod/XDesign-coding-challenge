@@ -4,7 +4,7 @@ import dateFormat from 'dateformat'
 const LaunchInformation = ({ launchData }) => {
     return(
         <>
-            <li>
+            <li className="flight-node">
                 <span className="flight-number"> #{ launchData.flight_number } </span>
                 <span className="mission-name"> { launchData.mission_name } </span>
                 <div>

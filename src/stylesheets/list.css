@@ -1,11 +1,11 @@
 #launch-list-wrapper{
     position: absolute;
-    width: 50%;
+    width: 55%;
     height: 83%;
     margin: 0;
     overflow: scroll;
     position: absolute;
-    right: 3em;
+    right: 5em;
     top: 11em;
     scroll-snap-type: y proximity;
 }
@@ -16,10 +16,9 @@
     height: 100%;
 }
 #launch-list-wrapper ul li{
-    width: 90%;
-    height: 4.5em;
-    margin: 1% 0 0 1%;
-    padding: 0 1.5em 0 1.5em;
+    width: 93%;
+    margin: 1% 0 1% 0;
+    padding: 0.5em 1.5em 0.5em 1.5em;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -28,27 +27,27 @@
     border-radius: 10px;
     display: grid;
     align-items: center;
-    grid-template-columns: 10% 50% 40%;
+    grid-template-columns: 1fr 4fr 1fr;
     scroll-snap-align: start;
 }
 .flight-number{
-    font-size: 2em;
+    font-size: 2.5em;
 }
 .mission-name{
-    font-size: 1.5em;
+    font-size: 2rem;
 }
 #launch-list-wrapper > ul > li > div{
     height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: right;
 }
 .launch-date{
-    font-size: small;
+    font-size: 1em;
 }
 .rocket-name{
-    font-size: large;
+    font-size: 1.5em;
 }
 
 

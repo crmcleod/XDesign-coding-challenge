@@ -3,8 +3,8 @@ import FilterContainer from './FilterContainer'
 import HeaderContainer from './HeaderContainer'
 import LaunchListContainer from './LaunchListContainer'
 import axios from 'axios'
-import launchImage from '../assets/img/launch-home@3x.png'
 import '../stylesheets/main.css'
+import MainLogo from '../components/MainLogo'
 
 const MainContainer = () => {
 
@@ -56,7 +56,7 @@ const MainContainer = () => {
     return(
         <>
             <HeaderContainer reloadData={ fetchData } apiURL={ apiURL }/>
-            <img id="home-image" src={ launchImage } alt="space x launch home page image" />
+            <MainLogo />
             <FilterContainer 
                             launchYears={ launchYears } 
                             setSortedAscending={ setSortedAscending } 

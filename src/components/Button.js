@@ -7,7 +7,7 @@ const Button = ({ buttonFunction, buttonId, buttonText, icon, functionParams }) 
     }
     return(
         <>
-            <button onClick={ handleClick } id={ buttonId }> { buttonText } <img src={ icon }/> </button>
+            <button onClick={ handleClick } id={ buttonId }> { buttonText } <img alt="" src={ icon }/> </button>
         </>
     )
 }

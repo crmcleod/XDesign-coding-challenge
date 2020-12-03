@@ -21,6 +21,7 @@ header{
     bottom: 0;
     position: relative;
     margin-left: -5%;
+    font-size: 1.25em;
 }
 #header-logo-container img{
     height: 1.3em;

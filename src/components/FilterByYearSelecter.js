@@ -1,5 +1,4 @@
 import React from 'react'
-import selectIcon from '../assets/icon/select@3x.png'
 
 const FilterByYearSelector = ({ launchYears, listFilter, setListFilter }) => {
 

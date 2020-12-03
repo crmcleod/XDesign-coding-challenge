@@ -4,7 +4,7 @@ import FilterByYearSelector from '../components/FilterByYearSelecter'
 import sortIcon from '../assets/icon/sort@3x.png'
 import '../stylesheets/filter.css'
 
-const FilterContainer = ({ launchYears, setSortedAscending, sortedAscending, listFilter, setListFilter }) => {
+const FilterContainer = ({ launchYears, toggleAscendingDescending, sortedAscending, listFilter, setListFilter }) => {
 
     return(
         <>
@@ -14,7 +14,7 @@ const FilterContainer = ({ launchYears, setSortedAscending, sortedAscending, lis
                         listFilter={ listFilter }
                         setListFilter={ setListFilter }
                 />
-                <Button buttonFunction={ setSortedAscending } 
+                <Button buttonFunction={ toggleAscendingDescending } 
                         functionParams={ !sortedAscending } 
                         buttonId={ 'sort-button' } 
                         buttonText={ `Sort ${ sortedAscending ? 'Descending' : 'Ascending' }` }

@@ -64,7 +64,7 @@ const MainContainer = () => {
             <MainLogo />
             <FilterContainer 
                             launchYears={ launchYears } 
-                            setSortedAscending={ toggleAscendingDescending } 
+                            toggleAscendingDescending={ toggleAscendingDescending } 
                             sortedAscending={ sortedAscending } 
                             listFilter={ listFilter }
                             setListFilter={ setListFilter }

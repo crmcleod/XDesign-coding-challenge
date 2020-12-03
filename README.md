@@ -2,6 +2,8 @@
 
 Create a React application that will consume data from the SpaceX public API. The application must retrieve historic and future SpaceX launches and present them in a list view.
 
+[Heroku deployment](https://spacex-launches-challenge.herokuapp.com/)
+
 ## User Stories
 - As a user, I want the ability to load the full list of SpaceX launches from the SpaceX API
 - As a user, I want the ability to reload the data to see any new changes

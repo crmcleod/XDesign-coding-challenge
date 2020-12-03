@@ -3,20 +3,34 @@
     width: 55%;
     height: 83%;
     margin: 0;
-    overflow: scroll;
+    overflow-x: hidden;
     position: absolute;
     right: 5em;
     top: 11em;
     scroll-snap-type: y proximity;
+}
+@keyframes shaking {
+    from{
+        transform: scale(1.05) rotate(1deg);
+        filter: blur(2px);
+    }
+    to{
+        transform: scale(1) rotate(-1deg);
+    }
+}
+#launch-list-wrapper h2{
+    animation: shaking 0.01s linear infinite;
+    text-align: center;
 }
 #launch-list-wrapper::-webkit-scrollbar{
     display: none;
 }
 #launch-list-wrapper ul{
     height: 100%;
+    width: 100%;
 }
 #launch-list-wrapper ul li{
-    width: 93%;
+    width: 88%;
     margin: 1% 0 1% 0;
     padding: 0.5em 1.5em 0.5em 1.5em;
     list-style: none;
@@ -27,7 +41,7 @@
     border-radius: 10px;
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 3fr 2fr;
     scroll-snap-align: start;
 }
 .flight-number{
@@ -49,5 +63,34 @@
 .rocket-name{
     font-size: 1.5em;
 }
+@media only screen and (max-width: 1350px){
+    #launch-list-wrapper{
+        width: 99% !important;
+        display: flex;
+        flex-direction: row;
+        right: 0;
+    }
+    #launch-list-wrapper > ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-
+    }
+    .flight-node{
+        width: 80% !important;
+    }
+}
+@media only screen and (max-width: 500px){
+    .flight-number{
+        font-size: 2em;
+    }
+    .mission-name{
+        font-size: 1.5em;
+    }
+    .launch-date{
+        font-size: 0.5em;
+    }
+    .rocket-name{
+        font-size: 1em;
+    }
+}

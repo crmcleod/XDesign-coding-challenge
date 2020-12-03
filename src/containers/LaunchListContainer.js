@@ -9,7 +9,7 @@ const LaunchListContainer = ({ launchesData }) => {
             <section id="launch-list-wrapper">
                 { launchesData ? 
                     <LaunchList launchesData={ launchesData } /> :
-                    <p> Preparing to launch 🚀 </p> 
+                    <h2> Preparing to launch 🚀 </h2> 
                 }
             </section>
         </>

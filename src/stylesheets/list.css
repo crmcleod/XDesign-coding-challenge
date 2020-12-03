@@ -28,12 +28,13 @@
 #launch-list-wrapper ul{
     height: 100%;
     width: 100%;
+    padding: 0;
 }
 #launch-list-wrapper ul li{
-    width: 88%;
-    margin: 1% 0 1% 0;
+    width: 92%;
+    margin: 1% 0 1% 1%;
     padding: 0.5em 1.5em 0.5em 1.5em;
-    list-style: none;
+    list-style-type: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -81,6 +82,10 @@
     }
 }
 @media only screen and (max-width: 500px){
+    #launch-list-wrapper > ul{
+        width: 100%;
+        margin-block-end: 0%;
+    }
     .flight-number{
         font-size: 2em;
     }

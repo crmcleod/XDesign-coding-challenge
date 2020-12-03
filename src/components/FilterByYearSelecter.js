@@ -24,7 +24,7 @@ const FilterByYearSelector = ({ launchYears, listFilter, setListFilter }) => {
     return(
         <>
             <select onChange={ handleYearFilterChange } id="filter-year-selector">
-                <option selected disabled >Filter by Year</option>
+                <option defaultValue="Filter by Year" disabled >Filter by Year</option>
                 <option value="" >Show all</option>
                 { options }
             </select>

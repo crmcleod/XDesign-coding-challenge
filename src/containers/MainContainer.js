@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import FilterContainer from './FilterContainer'
 import HeaderContainer from './HeaderContainer'
 import LaunchListContainer from './LaunchListContainer'
+import MainLogo from '../components/MainLogo'
 import axios from 'axios'
 import '../stylesheets/main.css'
-import MainLogo from '../components/MainLogo'
 
 const MainContainer = () => {
 
@@ -13,10 +13,14 @@ const MainContainer = () => {
     const [ launchYears, setLaunchYears ] = useState()
     const [ listFilter, setListFilter ] = useState({ filtered: false, launchYear: null })
     const [ sortedAscending, setSortedAscending ] = useState(true)
-    const [ apiURL, setApiURL ] = useState('https://api.spacexdata.com/v3/launches')
+    const [ apiURL, setAPIURL ] = useState('https://api.spacexdata.com/v3/launches')
 
 
     const getLaunchYears = ( data ) => {return data.map( launch => launch.launch_year )}
+
+    const resetSelect = () => {
+        document.querySelector('#filter-year-selector').selectedIndex = 0
+    }
 
     const fetchData = async ( url ) => {
         const spaceXAPIResults = await axios( url )
@@ -24,6 +28,7 @@ const MainContainer = () => {
         setLaunchDataForDisplay( spaceXAPIResults.data )
         setLaunchYears(getLaunchYears(spaceXAPIResults.data))
         setSortedAscending(true)
+        resetSelect()
     }
 
     useEffect(() => {
@@ -36,22 +41,22 @@ const MainContainer = () => {
             filteredList = spaceXLaunches.filter((launch) => {
                 return launch.launch_year == listFilter.launchYear })
             setLaunchDataForDisplay(filteredList)
+            setSortedAscending(true)
+
         } else {
             setLaunchDataForDisplay( spaceXLaunches )
         }
     }
 
-    const toggleAscendingDescending = ( x ) => {
-        if( !x ){
-            const sortedData = launchDataForDisplay.map(launch => launch).reverse()
-            setLaunchDataForDisplay(sortedData)
-        }
+    const toggleAscendingDescending = ( ) => {
+        const sortedData = launchDataForDisplay.map(launch => launch).reverse()
+        setLaunchDataForDisplay( sortedData )
+        setSortedAscending( !sortedAscending )
     }
 
     useEffect(() => {
         filterDataForDisplay()
-        toggleAscendingDescending(sortedAscending)
-    }, [ listFilter, sortedAscending ])
+    }, [ listFilter ])
 
     return(
         <>
@@ -59,7 +64,7 @@ const MainContainer = () => {
             <MainLogo />
             <FilterContainer 
                             launchYears={ launchYears } 
-                            setSortedAscending={ setSortedAscending } 
+                            setSortedAscending={ toggleAscendingDescending } 
                             sortedAscending={ sortedAscending } 
                             listFilter={ listFilter }
                             setListFilter={ setListFilter }

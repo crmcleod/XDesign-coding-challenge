@@ -22,6 +22,11 @@ const MainContainer = () => {
         document.querySelector( '#filter-year-selector' ).selectedIndex = 0
     }
 
+    const setListToTop = () => {
+        let topOfList = document.querySelector( '.flight-node' )
+        topOfList.scrollIntoView()
+    }
+
     const fetchData = async ( url ) => {
         const spaceXAPIResults = await axios( url )
         setSpaceXLaunches( spaceXAPIResults.data )
@@ -29,6 +34,7 @@ const MainContainer = () => {
         setLaunchYears(getLaunchYears( spaceXAPIResults.data ))
         setSortedAscending( true ) 
         resetSelect()
+        setListToTop()
     }
 
     useEffect( () => fetchData( apiURL ), [ apiURL ])
@@ -50,8 +56,7 @@ const MainContainer = () => {
         const sortedData = launchDataForDisplay.map( launch => launch ).reverse()
         setLaunchDataForDisplay( await sortedData )
         setSortedAscending( !sortedAscending )
-        let topOfList = document.querySelector( '.flight-node' )
-        topOfList.scrollIntoView()
+        setListToTop()
     }
 
     useEffect( filterDataForDisplay, [ listFilter ] )

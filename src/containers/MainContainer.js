@@ -23,11 +23,17 @@ const MainContainer = () => {
     }
 
     const setListToTop = () => {
-        let topOfList = document.querySelector( '.flight-node' )
-        topOfList.scrollIntoView()
+        let topOfList
+        if ( launchDataForDisplay ){
+            topOfList = document.querySelector( '.flight-node' )
+            topOfList.scrollIntoView() }
+        else {
+            null
+        }
     }
 
     const fetchData = async ( url ) => {
+        setLaunchDataForDisplay()
         const spaceXAPIResults = await axios( url )
         setSpaceXLaunches( spaceXAPIResults.data )
         setLaunchDataForDisplay( spaceXAPIResults.data )
@@ -36,8 +42,8 @@ const MainContainer = () => {
         resetSelect()
     }
 
-    useEffect( () => setListToTop, [ listFilter, sortedAscending, launchDataForDisplay ])
-    
+    useEffect( () => setListToTop, [ listFilter, sortedAscending ])
+
     useEffect( () => fetchData( apiURL ), [ apiURL ])
 
     const filterDataForDisplay = () => {

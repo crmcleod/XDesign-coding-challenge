@@ -34,9 +34,10 @@ const MainContainer = () => {
         setLaunchYears(getLaunchYears( spaceXAPIResults.data ))
         setSortedAscending( true ) 
         resetSelect()
-        setListToTop()
     }
 
+    useEffect( () => setListToTop, [ listFilter, sortedAscending, launchDataForDisplay ])
+    
     useEffect( () => fetchData( apiURL ), [ apiURL ])
 
     const filterDataForDisplay = () => {
@@ -56,7 +57,6 @@ const MainContainer = () => {
         const sortedData = launchDataForDisplay.map( launch => launch ).reverse()
         setLaunchDataForDisplay( await sortedData )
         setSortedAscending( !sortedAscending )
-        setListToTop()
     }
 
     useEffect( filterDataForDisplay, [ listFilter ] )

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import LaunchList from '../components/LaunchList'
 import '../stylesheets/list.css'

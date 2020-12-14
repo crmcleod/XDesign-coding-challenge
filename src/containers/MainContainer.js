@@ -13,7 +13,7 @@ const MainContainer = () => {
     const [ launchYears, setLaunchYears ] = useState()
     const [ listFilter, setListFilter ] = useState({ filtered: false, launchYear: null })
     const [ sortedAscending, setSortedAscending ] = useState(true)
-    const [ apiURL, setAPIURL ] = useState('https://api.spacexdata.com/v3/launches')
+    const [ apiURL ] = useState('https://api.spacexdata.com/v3/launches')
 
 
     const getLaunchYears = ( data ) => {return data.map( launch => launch.launch_year )}
@@ -31,15 +31,13 @@ const MainContainer = () => {
         resetSelect()
     }
 
-    useEffect(() => {
-        fetchData(apiURL)
-    }, [])
+    useEffect( () => fetchData(apiURL), [ apiURL ])
 
     const filterDataForDisplay = () => {
         let filteredList
         if( listFilter.filtered ){
             filteredList = spaceXLaunches.filter((launch) => {
-                return launch.launch_year == listFilter.launchYear })
+                return launch.launch_year === listFilter.launchYear })
             setLaunchDataForDisplay(filteredList)
             setSortedAscending(true)
 
@@ -48,26 +46,26 @@ const MainContainer = () => {
         }
     }
 
-    const toggleAscendingDescending = ( ) => {
-        const sortedData = launchDataForDisplay.map(launch => launch).reverse()
-        setLaunchDataForDisplay( sortedData )
+    const toggleAscendingDescending = async ( ) => {
+        const sortedData = launchDataForDisplay.map( launch => launch ).reverse()
+        setLaunchDataForDisplay( await sortedData )
         setSortedAscending( !sortedAscending )
+        let topOfList = document.querySelector( '.flight-node' )
+        topOfList.scrollIntoView()
     }
 
-    useEffect(() => {
-        filterDataForDisplay()
-    }, [ listFilter ])
+    useEffect( filterDataForDisplay, [ listFilter ] )
 
     return(
         <>
-            <HeaderContainer reloadData={ fetchData } apiURL={ apiURL }/>
+            <HeaderContainer reloadData={ fetchData } apiURL={ apiURL } />
             <MainLogo />
             <FilterContainer 
-                            launchYears={ launchYears } 
-                            toggleAscendingDescending={ toggleAscendingDescending } 
-                            sortedAscending={ sortedAscending } 
-                            listFilter={ listFilter }
-                            setListFilter={ setListFilter }
+                launchYears={ launchYears } 
+                toggleAscendingDescending={ toggleAscendingDescending } 
+                sortedAscending={ sortedAscending } 
+                listFilter={ listFilter }
+                setListFilter={ setListFilter }
             />
             <LaunchListContainer launchesData={ launchDataForDisplay } />
         </>

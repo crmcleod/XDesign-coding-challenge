@@ -1,14 +1,13 @@
+import React from 'react'
 import './App.css'
 import MainContainer from './containers/MainContainer'
 import './stylesheets/stylesheet.scss'
 
 
 function App() {
-  return (
-      
-      <MainContainer />
-    
-  );
+    return (
+        <MainContainer />
+    )
 }
 
 export default App

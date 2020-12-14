@@ -7,18 +7,18 @@ const FilterByYearSelector = ({ launchYears, listFilter, setListFilter }) => {
         const uniqueYears = [...new Set( launchYears )]
         options = uniqueYears.map( ( year ) => {
             return( <option key={ year } value={ year }> { year } </option>)
-    })}
+        })}
 
     const handleYearFilterChange = ( event ) => {
-            if(event.target.value){
-                setListFilter(
-                    {...listFilter, filtered: true, launchYear: event.target.value }
-                )
-            } else {
-                setListFilter(
-                    {...listFilter, filtered: false, launchYear: event.target.value }
-                )
-            }
+        if(event.target.value){
+            setListFilter(
+                {...listFilter, filtered: true, launchYear: event.target.value }
+            )
+        } else {
+            setListFilter(
+                {...listFilter, filtered: false, launchYear: event.target.value }
+            )
+        }
     }
 
     return(

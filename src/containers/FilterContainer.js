@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import Button from '../components/Button'
 import FilterByYearSelector from '../components/FilterByYearSelecter'
@@ -10,15 +11,15 @@ const FilterContainer = ({ launchYears, toggleAscendingDescending, sortedAscendi
         <>
             <div id="filter-buttons-wrapper">
                 <FilterByYearSelector 
-                        launchYears={ launchYears }
-                        listFilter={ listFilter }
-                        setListFilter={ setListFilter }
+                    launchYears={ launchYears }
+                    listFilter={ listFilter }
+                    setListFilter={ setListFilter }
                 />
                 <Button buttonFunction={ toggleAscendingDescending } 
-                        functionParams={ !sortedAscending } 
-                        buttonId={ 'sort-button' } 
-                        buttonText={ `Sort ${ sortedAscending ? 'Descending' : 'Ascending' }` }
-                        icon={ sortIcon }
+                    functionParams={ !sortedAscending } 
+                    buttonId={ 'sort-button' } 
+                    buttonText={ `Sort ${ sortedAscending ? 'Descending' : 'Ascending' }` }
+                    icon={ sortIcon }
                 />
             </div>
         </>

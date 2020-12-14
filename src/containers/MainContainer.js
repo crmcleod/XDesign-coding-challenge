@@ -19,27 +19,27 @@ const MainContainer = () => {
     const getLaunchYears = ( data ) => {return data.map( launch => launch.launch_year )}
 
     const resetSelect = () => {
-        document.querySelector('#filter-year-selector').selectedIndex = 0
+        document.querySelector( '#filter-year-selector' ).selectedIndex = 0
     }
 
     const fetchData = async ( url ) => {
         const spaceXAPIResults = await axios( url )
         setSpaceXLaunches( spaceXAPIResults.data )
         setLaunchDataForDisplay( spaceXAPIResults.data )
-        setLaunchYears(getLaunchYears(spaceXAPIResults.data))
-        setSortedAscending(true)
+        setLaunchYears(getLaunchYears( spaceXAPIResults.data ))
+        setSortedAscending( true ) 
         resetSelect()
     }
 
-    useEffect( () => fetchData(apiURL), [ apiURL ])
+    useEffect( () => fetchData( apiURL ), [ apiURL ])
 
     const filterDataForDisplay = () => {
         let filteredList
         if( listFilter.filtered ){
-            filteredList = spaceXLaunches.filter((launch) => {
+            filteredList = spaceXLaunches.filter(( launch ) => {
                 return launch.launch_year === listFilter.launchYear })
-            setLaunchDataForDisplay(filteredList)
-            setSortedAscending(true)
+            setLaunchDataForDisplay( filteredList )
+            setSortedAscending( true )
 
         } else {
             setLaunchDataForDisplay( spaceXLaunches )
